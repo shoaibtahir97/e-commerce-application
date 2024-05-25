@@ -5,19 +5,22 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { HiOutlineUser } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <Navbar fluid rounded>
-      <Navbar.Brand href="https://flowbite-react.com">
-        {/* <img
+      <Navbar.Brand>
+        <Link to={"/"}>
+          {/* <img
            src="/favicon.svg"
           className="mr-3 h-6 sm:h-9"
            alt="Flowbite React Logo"
         /> */}
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Flowbite React
-        </span>
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            Elliye
+          </span>
+        </Link>
       </Navbar.Brand>
       <Navbar.Toggle />
 
