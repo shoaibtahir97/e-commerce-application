@@ -1,0 +1,12 @@
+.text {
+width:60px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-title {
+    width:'130px'
+}

@@ -7,7 +7,9 @@ const App = () => {
   return (
     <div>
       <Header />
-      <HomeScreen />
+      <div className="container fluid">
+        <HomeScreen />
+      </div>
     </div>
   );
 };
