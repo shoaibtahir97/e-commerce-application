@@ -5,9 +5,10 @@ export interface Product {
   description: string;
   category: string;
   image: string;
-  rating: Rating;
+  rating: IRating;
+  inStock: boolean;
 }
-export interface Rating {
+export interface IRating {
   rate: number;
   count: number;
 }
