@@ -7,7 +7,7 @@ const HomeScreen = () => {
     <div className="container mx-8">
       <CarouselComponent {...{ products }} />
       <p className="text-2xl ">Products</p>
-      <div className="container fluid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 ">
+      <div className="container fluid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         {products.map((item, _) => (
           <CardComponent key={item._id} product={item} />
         ))}

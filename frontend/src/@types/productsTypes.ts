@@ -6,7 +6,7 @@ export interface Product {
   category: string;
   image: string;
   rating: IRating;
-  inStock: boolean;
+  countInStock: number;
 }
 export interface IRating {
   rate: number;

@@ -10,35 +10,36 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <Navbar fluid rounded>
-      <Navbar.Brand>
-        <Link to={"/"}>
-          {/* <img
-           src="/favicon.svg"
-          className="mr-3 h-6 sm:h-9"
-           alt="Flowbite React Logo"
-        /> */}
+      <Link to={"/"}>
+        <Navbar.Brand>
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Elliye
           </span>
-        </Link>
-      </Navbar.Brand>
+        </Navbar.Brand>
+      </Link>
       <Navbar.Toggle />
 
       <Navbar.Collapse>
-        <Navbar.Link href="#">
-          <Badge className="flex items-center">
-            <HiOutlineHeart size="25px" />
-            {/* Wishlist */}
-          </Badge>
+        <Navbar.Link>
+          <Link to="/wishlist">
+            <Badge className="flex items-center">
+              <HiOutlineHeart size="25px" />
+              {/* Wishlist */}
+            </Badge>
+          </Link>
         </Navbar.Link>
-        <Navbar.Link href="#">
-          <Badge className="flex items-center">
-            <HiOutlineShoppingCart size="25px" />
-            {/* Cart */}
-          </Badge>
+        <Navbar.Link>
+          <Link to={"/cart"}>
+            <Badge className="flex items-center">
+              <HiOutlineShoppingCart size="25px" />
+              {/* Cart */}
+            </Badge>
+          </Link>
         </Navbar.Link>
-        <Navbar.Link href="#" className="flex items-center">
-          <HiOutlineUser size="25px" />
+        <Navbar.Link className="flex items-center">
+          <Link to={"/profile"}>
+            <HiOutlineUser size="25px" />
+          </Link>
           {/* Profile */}
         </Navbar.Link>
       </Navbar.Collapse>
