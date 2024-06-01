@@ -8,12 +8,8 @@ interface RatingProps {
 }
 
 const RatingComponent = (props: RatingProps) => {
-  let {
-    rating: { count, rate },
-    showCount = false,
-    size = "",
-  } = props;
-  rate = Math.round(rate);
+  const { rating, showCount = false, size = "" } = props;
+  const rate = Math.round(rating?.rate);
   return (
     <Rating size={size}>
       {rate >= 1 ? <Rating.Star /> : <Rating.Star filled={false} />}
@@ -23,7 +19,7 @@ const RatingComponent = (props: RatingProps) => {
       {rate >= 5 ? <Rating.Star /> : <Rating.Star filled={false} />}
       {showCount && (
         <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-          ({count} reviews)
+          ({rating?.count} reviews)
         </p>
       )}
     </Rating>

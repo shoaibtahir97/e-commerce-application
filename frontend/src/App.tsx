@@ -3,7 +3,7 @@ import Header from "./components/Header";
 
 const App = () => {
   return (
-    <div>
+    <div className="container px-4 mx-auto">
       <Header />
       <div className="container fluid">
         <Outlet />

@@ -10,14 +10,10 @@ interface CardProps {
 
 const CardComponent: React.FC<CardProps> = ({ product }) => {
   return (
-    <Card
-    // className="product-image"
-    // imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-    // imgSrc={product.image}
-    >
+    <Card>
       <Link to={`/product/${product._id}`}>
         <img src={product.image} className="product-image" />
-        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white product-title">
+        <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white product-title">
           {product.title}
         </h5>
       </Link>

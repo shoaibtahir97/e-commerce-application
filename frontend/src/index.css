@@ -2,18 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 
 /* Product Card */
 .product-title {
-  height:2.5rem;
+  height: 2.5rem;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .product-image {
-  height:280px;
-  
+  height: 260px;
 }
 
 /* 

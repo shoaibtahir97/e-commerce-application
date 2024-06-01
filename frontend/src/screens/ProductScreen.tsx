@@ -1,17 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import products from "../products";
 import { Badge, Breadcrumb, Button } from "flowbite-react";
 import { HiHome } from "react-icons/hi2";
 import Rating from "../components/Rating";
 import { SelectComponent } from "../components/Select";
 import { BsCartPlus } from "react-icons/bs";
+import axios from "axios";
+import { IRating, Product } from "../@types/productsTypes";
+
+interface IState {
+  product: Product;
+  loading: boolean;
+}
+
 const ProductScreen = () => {
   const { id: productId } = useParams();
-  const product = products.find((item) => item._id === Number(productId));
   const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [state, setState] = useState<IState>({
+    product: {} as Product,
+    loading: false,
+  });
 
-  return (
+  async function fetchProduct() {
+    setState({ ...state, loading: true });
+    await axios
+      .get(`/api/product/${productId}`)
+      .then((res) => {
+        setState({ loading: false, product: res?.data });
+      })
+      .catch((err) => {
+        console.log("Error", err);
+        setState({ ...state, loading: false });
+      });
+  }
+
+  useEffect(() => {
+    fetchProduct();
+  }, [productId]);
+
+  const { product, loading } = state;
+  return loading ? (
+    <div></div>
+  ) : (
     <div className="container mx-5">
       <div className="my-4 ">
         <Breadcrumb>
@@ -45,7 +75,11 @@ const ProductScreen = () => {
             )}
           </div>
           <h6 className="text-2xl">{product?.title}</h6>
-          <Rating rating={product?.rating!} showCount={true} size={"md"} />
+          <Rating
+            rating={product && product.rating}
+            showCount={true}
+            size={"md"}
+          />
           <p className="text-xl ">${product?.price}</p>
           <p className="text-sm text-slate-700 ">{product?.description}</p>
           <div className="flex space-x-8">
