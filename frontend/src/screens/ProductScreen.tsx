@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Badge, Breadcrumb, Button } from "flowbite-react";
 import { HiHome } from "react-icons/hi2";
@@ -6,7 +6,7 @@ import Rating from "../components/Rating";
 import { SelectComponent } from "../components/Select";
 import { BsCartPlus } from "react-icons/bs";
 import axios from "axios";
-import { IRating, Product } from "../@types/productsTypes";
+import { Product } from "../@types/productsTypes";
 
 interface IState {
   product: Product;
@@ -24,7 +24,7 @@ const ProductScreen = () => {
   async function fetchProduct() {
     setState({ ...state, loading: true });
     await axios
-      .get(`/api/product/${productId}`)
+      .get(`/api/products/${productId}`)
       .then((res) => {
         setState({ loading: false, product: res?.data });
       })
