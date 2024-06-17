@@ -20,7 +20,6 @@ const HomeScreen = () => {
     await axios
       .get("/api/products")
       .then((res) => {
-        console.log("res", res.data);
         setState({ loading: false, products: res?.data });
       })
       .catch((err) => {
